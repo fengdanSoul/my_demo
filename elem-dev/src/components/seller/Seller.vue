@@ -1,7 +1,7 @@
 <template>
-    <div class="seller">
-      I am seller
-    </div>
+  <div>
+    商家
+  </div>
 </template>
 
 <script>
