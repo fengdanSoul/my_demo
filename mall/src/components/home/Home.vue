@@ -38,41 +38,38 @@
     components: {
       housekeeperListH
     },
-    created() {
-      console.log('00000000');
-    },
     mounted() {
-
       this.init();
     },
     methods: {
       init() {
-        console.log(this.localName);
-        this.$http.post('/api/index', {
-          localName:this.localName
+        let _this = this;
+        this.$http.post('/api/searchCityCode', {
+          localName: _this.localName
         }).then(function (response) {
-          console.log(response);
           let result = response.data;
-          if(result['errorCode'] === 0 || result['success'] === true ) {
-
-            this.$http.post('/api/',{
+          if (result['errorCode'] === 0 || result['success'] === true) {
+            _this.$http.post('/api/index',{
               "areaCode_eq":result['value']['localCode']
             }).then(function (response) {
-              if(result['errorCode'] === 0 || result['success'] === true ) {
-                let result = response.data;
-                this.butlerrecommend = result['value']['Butlerrecommend'];
-                this.imgHost = result['imgHost'];
-                console.log(this.butlerrecommend);
-
+              let result1 = response.data;
+              console.log(response);
+              if(result1['errorCode'] === 0 || result1['success'] === true ) {
+                _this.butlerrecommend = result1['value']['Butlerrecommend'];
+                _this.imgHost = result1['imgHost'];
               }
-
             }).catch(function (err) {
-              console.log('获取首页数据失败');
+              console.log(err);
+              if (err){
+                console.log('获取首页数据失败');
+              }
             })
           }
-
         }).catch(function (error) {
-          console.log('获取城市失败');
+          console.log(error);
+          if (error) {
+            console.log('获取城市失败');
+          }
         });
       }
     }
