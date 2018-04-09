@@ -1,5 +1,7 @@
 <template>
-
+  <div class="googs">
+    I am goods
+  </div>
 </template>
 
 <script>

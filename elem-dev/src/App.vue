@@ -1,31 +1,44 @@
 <template>
   <div id="app">
-    <header></header>
-    <div>hello world</div>
-
+    <!--<headerView></headerView>-->
+    <div class="tab">
+      <div class="tab-item">
+        <router-link to="/goods">商品</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/ratings">评价</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/seller">商家</router-link>
+      </div>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import header from './components/header/Header'
-
+  import headerView from './components/header/Header'
   export default {
     name: 'App',
-    comments: {
-      header
+    components: {
+      headerView
     }
   }
 </script>
 
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+<style lang="stylus" rel="stylesheet/stylus">
+  #app
+    .tab
+      display flex
+      width 100%
+      height 40px
+      line-height 40px
+      text-align center
+      .tab-item
+        flex 1
+        & > a.active
+          color red
 
-  }
+
 
 </style>

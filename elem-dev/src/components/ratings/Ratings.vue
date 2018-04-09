@@ -1,17 +1,15 @@
 <template>
-  <div class="home">
-
-  </div>
-
+    <div class="ratings">
+      I am ratings
+    </div>
 </template>
 
 <script>
     export default {
-        name: "Home"
+        name: "Ratings"
     }
 </script>
 
 <style scoped>
-
 
 </style>
