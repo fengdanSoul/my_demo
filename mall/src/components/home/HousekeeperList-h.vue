@@ -9,7 +9,7 @@
               <img :src="imgHost+item.img" />
               <p>
                 <strong>{{item.butlerNameCn}}</strong><span>评价{{item.score}}  200单</span>
-                <font><em>{{item.labelType}}</em></font>
+                <font><em v-for="label in item.labelType.split(',')">{{label}}</em></font>
               </p>
             </a>
           </div>
