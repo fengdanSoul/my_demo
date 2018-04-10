@@ -2,85 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31a96b24-3754-4795-846b-ff486cda18ef" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/elem-dev/src/components/ratings/Ratings.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elem-dev/src/components/seller/Seller.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/btn_calendar_selected.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/btn_huangli.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/btn_jh.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/btn_jh1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/calendar_arrow_right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/calendar_bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/calendar_img_relax.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/calendar_img_work.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/cotrl-bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/header_bg.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon12_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon13_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon14_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon18_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon19_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon20_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon21_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/icon9_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/loading.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/pic/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/pic/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/pic/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/assets/top_bg.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/components/footer/Footer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/components/home/HousekeeperList-h.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/components/housekeeper/Housekeeper.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/src/components/profile/Profile.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/bootstrap-slider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/bootstrap-slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/bootstrap-slider.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/bootstrap-slider.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/bootstrap/html5shiv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/css/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mall/static/js/jquery-1.9.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/build/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/build/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/build/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/build/webpack.base.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/src/components/goods/Goods.vue" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/src/components/goods/Goods.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/src/components/header/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/src/components/header/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elem-dev/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/elem-dev/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/mall/config/dev.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mall/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mall/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mall/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mall/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mall/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mall/src/components/home/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/mall/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mall/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/src/components/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mall/src/components/home/Home.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -94,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Home.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Home.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mall/src/components/home/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state relative-caret-position="417">
+              <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -116,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HousekeeperList-h.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HousekeeperList-h.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mall/src/components/home/HousekeeperList-h.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+            <state relative-caret-position="480">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -185,8 +107,8 @@
         <option value="$PROJECT_DIR$/mall/static/package.json" />
         <option value="$PROJECT_DIR$/mall/config/index.js" />
         <option value="$PROJECT_DIR$/mall/config/dev.env.js" />
-        <option value="$PROJECT_DIR$/mall/src/components/home/Home.vue" />
         <option value="$PROJECT_DIR$/mall/src/components/home/HousekeeperList-h.vue" />
+        <option value="$PROJECT_DIR$/mall/src/components/home/Home.vue" />
       </list>
     </option>
   </component>
@@ -202,7 +124,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="931" />
-    <option name="y" value="40" />
+    <option name="y" value="39" />
     <option name="width" value="1257" />
     <option name="height" value="1057" />
   </component>
@@ -353,12 +275,12 @@
       <updated>1522738596665</updated>
       <workItem from="1522738601693" duration="14659000" />
       <workItem from="1523236534617" duration="5422000" />
-      <workItem from="1523252861417" duration="11115000" />
+      <workItem from="1523252861417" duration="12025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31196000" />
+    <option name="totallyTimeSpent" value="32106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="931" y="40" width="1257" height="1057" extended-state="0" />
@@ -742,17 +664,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mall/src/components/home/Home.vue">
+    <entry file="file://$PROJECT_DIR$/mall/src/components/home/HousekeeperList-h.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state relative-caret-position="480">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mall/src/components/home/HousekeeperList-h.vue">
+    <entry file="file://$PROJECT_DIR$/mall/src/components/home/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        <state relative-caret-position="417">
+          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
         </state>
       </provider>
     </entry>

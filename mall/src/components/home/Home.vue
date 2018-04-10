@@ -38,9 +38,6 @@
     components: {
       housekeeperListH
     },
-    created() {
-      console.log('00000000');
-    },
     mounted() {
 
       this.init();
@@ -48,32 +45,31 @@
     methods: {
       init() {
         console.log(this.localName);
-        this.$http.post('/api/index', {
-          localName:this.localName
+        this.$http.post('/api/searchCityCode', {
+          localName:'上海市'
         }).then(function (response) {
           console.log(response);
           let result = response.data;
           if(result['errorCode'] === 0 || result['success'] === true ) {
-
-            this.$http.post('/api/',{
-              "areaCode_eq":result['value']['localCode']
+            this.$http.post('/api/index',{
+              "areaCode_eq":'310100'//result['value']['localCode']
             }).then(function (response) {
               if(result['errorCode'] === 0 || result['success'] === true ) {
                 let result = response.data;
                 this.butlerrecommend = result['value']['Butlerrecommend'];
                 this.imgHost = result['imgHost'];
                 console.log(this.butlerrecommend);
-
               }
-
             }).catch(function (err) {
               console.log('获取首页数据失败');
-            })
+            });
+
           }
 
         }).catch(function (error) {
           console.log('获取城市失败');
         });
+
       }
     }
 
