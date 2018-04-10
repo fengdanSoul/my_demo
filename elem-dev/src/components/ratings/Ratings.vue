@@ -1,7 +1,7 @@
 <template>
-    <div class="ratings">
-      I am ratings
-    </div>
+  <div>
+    评价
+  </div>
 </template>
 
 <script>

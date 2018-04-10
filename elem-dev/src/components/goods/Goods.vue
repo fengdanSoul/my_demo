@@ -1,6 +1,6 @@
 <template>
-  <div class="googs">
-    I am goods
+  <div class="goods">
+    商品。。。
   </div>
 </template>
 

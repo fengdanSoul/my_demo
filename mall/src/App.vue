@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!--<LoadingView></LoadingView>-->
     <transition name="slide-down">
       <keep-alive>
         <router-view class="router-view"></router-view>
@@ -10,10 +11,12 @@
 </template>
 
 <script>
+  import LoadingView from './components/loading/Loading'
   import footerView from './components/footer/Footer.vue'
 export default {
   name: 'App',
   components: {
+    LoadingView,
     footerView
   }
 }

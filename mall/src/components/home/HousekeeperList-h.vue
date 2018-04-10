@@ -5,11 +5,11 @@
         <dt><img src="../../assets/icon3.png" /><span>游艇管家</span><a href="#">更多</a></dt>
         <dd>
           <div class="lay_hie">
-            <a href="javascript:;" v-for="item in butlerrecommend" v-if="butlerrecommend">
+            <a href="javascript:;" v-for="item in butlerrecommend" v-if="butlerrecommend" @click="toButlerDet(item.butlerId)">
               <img :src="imgHost+item.img" />
               <p>
                 <strong>{{item.butlerNameCn}}</strong><span>评价{{item.score}}  200单</span>
-                <font><em>{{item.labelType}}</em></font>
+                <font><em v-for="label in item.labelType.split(',')">{{label}}</em></font>
               </p>
             </a>
           </div>
@@ -29,7 +29,18 @@
           type:''
         }
       },
-      mounted() {
+      methods: {
+        toButlerDet(butlerId) {
+          this.$http.post('/api/searchButlerInfo', {
+            'butlerId':butlerId
+          }).then(function (response) {
+            console.log(response);
+          }).catch(function (err) {
+            if (err) {
+              console.log('获取管家详情失败');
+            }
+          })
+        }
 
       }
 

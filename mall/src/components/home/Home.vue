@@ -1,15 +1,17 @@
 <template>
   <div class="header">
     <div class="home_header">
-      <strong class="col-xs-2">
-        <select name="" class=" mar_top4">
-          <option value="杭州">杭州</option>
+      <strong class="col-xs-3">
+        <select v-model="localName" class=" mar_top4">
+          <option >{{localName}}</option>
+          <option>广州</option>
+          <option>北京</option>
         </select>
       </strong>
-      <p class="col-xs-9 home_search"><span><input name="" type="text" value="搜索城市，游艇等信息" onfocus="if (value =='搜索城市，游艇等信息'){value =''}" onblur="if (value ==''){value='搜索城市，游艇等信息'}" /></span></p>
+      <p class="col-xs-8 home_search"><span><input name="" type="text" value="搜索城市，游艇等信息" onfocus="if (value =='搜索城市，游艇等信息'){value =''}" onblur="if (value ==''){value='搜索城市，游艇等信息'}" /></span></p>
       <a href="#" class="col-xs-1 tex_cen pad0"><img src="../../assets/icon1.png" /></a>
       <div>
-   <span><select name="">
+        <span><select name="">
     <option value="出游日期">出游日期</option>
    </select></span>
         <span class=" bor_no mar_le20"><select name="" >
@@ -29,7 +31,7 @@
   export default {
     data(){
       return {
-        localName:'上海市',
+        localName:'杭州',
         imgHost:'',
         butlerrecommend:[]
       }
@@ -39,38 +41,83 @@
       housekeeperListH
     },
     mounted() {
+      console.log('----',this.localName);
+      if (this.localName.length) {
+        this.init();
+      }
 
-      this.init();
+      this.getLocation();
+    },
+    watch:{
+      'localName': function () {
+        if (this.localName.length) {
+          this.init();
+        }
+      }
     },
     methods: {
       init() {
-        console.log(this.localName);
+
+        let _this = this;
         this.$http.post('/api/searchCityCode', {
-          localName:'上海市'
+          localName: _this.localName
         }).then(function (response) {
-          console.log(response);
           let result = response.data;
-          if(result['errorCode'] === 0 || result['success'] === true ) {
-            this.$http.post('/api/index',{
-              "areaCode_eq":'310100'//result['value']['localCode']
+          if (result['errorCode'] === 0 || result['success'] === true) {
+            _this.$http.post('/api/index',{
+              "areaCode_eq":result['value']['localCode']
             }).then(function (response) {
-              if(result['errorCode'] === 0 || result['success'] === true ) {
-                let result = response.data;
-                this.butlerrecommend = result['value']['Butlerrecommend'];
-                this.imgHost = result['imgHost'];
-                console.log(this.butlerrecommend);
+              let result1 = response.data;
+              console.log(response);
+              if(result1['errorCode'] === 0 || result1['success'] === true ) {
+                _this.butlerrecommend = result1['value']['Butlerrecommend'];
+                _this.imgHost = result1['imgHost'];
               }
             }).catch(function (err) {
-              console.log('获取首页数据失败');
+              if (err){
+                console.log('获取首页数据失败');
+              }
+            })
+          }
+        }).catch(function (error) {
+          if (error) {
+            console.log('获取城市失败');
+          }
+        });
+
+      },
+      getLocation() {
+        let _this = this;
+        // 百度地图API功能121.48789949,31.24916171
+        // 百度地图 浏览器定位
+        var map = new BMap.Map("allmap");
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+          if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            // alert('您的位置：'+r.point.lng+','+r.point.lat);
+            // 百度地图根据经纬度获取地址
+            // var point = new BMap.Point(121.48789949,31.24916171);
+            var geoc = new BMap.Geocoder();
+            geoc.getLocation(r.point, function(rs){
+              var addComp = rs.addressComponents;
+              // alert('当前城市：',addComp.city);
+              _this.localName = addComp.city;
+              // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
             });
 
           }
+          else {
+            alert('failed'+this.getStatus());
+          }
+        },{enableHighAccuracy: true})
 
-        }).catch(function (error) {
-          console.log('获取城市失败');
-        });
+
+
+
+
 
       }
+
     }
 
   }
@@ -87,7 +134,7 @@
     background: url("../../assets/icon2.png") no-repeat scroll right center transparent;padding-right:20px;background-size:15px auto;}
   .home_header p{margin:0;}
   .home_header .home_search span{background-color:rgba(255,255,255,0.3);border-radius:5px;width:100%;height:32px;float:left;}
-  .home_header input[type=text]{width:100%;height:32px;border:0;font-size:14px;color:#fff;text-align:center;background:transparent url(../../assets/icon.png) 20% 50% no-repeat;background-size:15px 15px;padding-left:8%;}
+  .home_header input[type=text]{width:100%;height:32px;border:0;font-size:14px;color:#fff;text-align:left;background:transparent url(../../assets/icon.png) 2% 50% no-repeat;background-size:15px 15px;padding-left:12.5%;padding-right:5%;}
   .home_header a img{width:22px;margin-top:5px;}
   .home_header div{display:inline-block;margin-top:55px;}
   .home_header div span{border-right:2px solid #fff;display:inline-block;padding-right:20px;height:20px;}
