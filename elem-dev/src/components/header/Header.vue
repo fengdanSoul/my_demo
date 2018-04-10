@@ -201,10 +201,16 @@
       overflow auto
       background rgba(7,17,27,0.8)
       .detail-wrapper
+        width 100%
         min-height 100%
         .detail-main
           margin-top 64px
           padding-bottom 64px
+          .name
+            line-height 17px
+            text-align center
+            font-size 17px
+            font-weight 700
       .detail-close
         position relative
         width 32px
