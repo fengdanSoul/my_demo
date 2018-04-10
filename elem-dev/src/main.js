@@ -5,10 +5,12 @@ import App from './App'
 import router from './router'
 // import './common/stylus/index.styl'
 import VueResource from 'vue-resource'
+// import axios from 'axios'
 
 Vue.use(VueResource);
 
 Vue.config.productionTip = false
+// Vue.prototype.$myhttp = axios;
 
 /* eslint-disable no-new */
 new Vue({
