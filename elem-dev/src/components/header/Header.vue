@@ -18,13 +18,13 @@
             <span class="text">{{seller.supports[0].description}}</span>
           </div>
         </div>
-        <div v-if="seller.supports" class="support-count">
+        <div v-if="seller.supports" class="support-count" @click="showDetail">
           <span class="count">{{seller.supports.length}}个</span>
           <i class="icon-keyboard_arrow_right"></i>
         </div>
       </div>
       <!--公告-->
-      <div class="bulletin-wrapper">
+      <div class="bulletin-wrapper" @click="showDetail">
         <span class="bulletin-title"></span>
         <span class="bulletin-text">{{seller.bulletin}}</span>
         <i class="icon-keyboard_arrow_right"></i>
@@ -32,6 +32,18 @@
       <!--背景-->
       <div class="background">
         <img :src="seller.avatar" width="100%" >
+      </div>
+      <!--浮层-详情-->
+      <div v-show="detailShow" class="detail" >
+        <div class="detail-wrapper clearfix">
+          <div class="detail-main">
+            <h1 class="name">{{seller.name}}</h1>
+          </div>
+        </div>
+        <!--关闭按钮-->
+         <div class="detail-close" @click="closeDetail">
+           <i class="icon-close"></i>
+         </div>
       </div>
     </div>
 </template>
@@ -45,7 +57,15 @@
       },
       data() {
         return {
-          seller1: {}
+          detailShow: false
+        }
+      },
+      methods: {
+        showDetail() {
+          this.detailShow = true
+        },
+        closeDetail() {
+          this.detailShow = false
         }
       },
       created() {
@@ -172,6 +192,26 @@
       height 100%
       z-index -1
       filter blur(10px)
+    .detail
+      position fixed
+      z-index 100
+      top 0
+      width 100%
+      height 100%
+      overflow auto
+      background rgba(7,17,27,0.8)
+      .detail-wrapper
+        min-height 100%
+        .detail-main
+          margin-top 64px
+          padding-bottom 64px
+      .detail-close
+        position relative
+        width 32px
+        height 32px
+        margin -64px auto 0 auto
+        clear both
+        font-size 32px
 
 
 </style>
