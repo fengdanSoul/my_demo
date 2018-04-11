@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab ">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
@@ -26,6 +26,20 @@
       return {
         seller: {}
       }
+    },
+    created(){
+      // http://192.168.0.105/data.json
+      let _this = this;
+      this.$http.get('/api/data.json').then((response) => {
+        if (response.data) {
+          _this.seller = response.data['seller'];
+        }
+        // console.log(response.data);
+      }).catch((error) => {
+        if (error){
+          console.log(error);
+        }
+      });
     },
     components: {
       'v-header':header
