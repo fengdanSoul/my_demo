@@ -34,21 +34,49 @@
         <img :src="seller.avatar" width="100%" >
       </div>
       <!--浮层-详情-->
-      <div v-show="detailShow" class="detail" >
-        <div class="detail-wrapper clearfix">
-          <div class="detail-main">
-            <h1 class="name">{{seller.name}}</h1>
+      <transition name="slide-fade">
+        <div v-show="detailShow" class="detail">
+          <div class="detail-wrapper clearfix">
+            <div class="detail-main">
+              <h1 class="name">{{seller.name}}</h1>
+              <!--评分星星-->
+              <div class="star-wrapper">
+                <star :size="48" :score="seller.score"></star>
+              </div>
+              <!--优惠信息-->
+              <div class="title">
+                <div class="line"></div>
+                <div class="text">优惠信息</div>
+                <div class="line"></div>
+              </div>
+              <ul v-if="seller.supports" class="supports">
+                <li class="support-item" v-for="(item,index) in seller.supports">
+                  <span class="icon" :class="classMap[seller.supports[index].type]"></span>
+                  <span class="text">{{item.description}}</span>
+                </li>
+              </ul>
+              <!--商家公告-->
+              <div class="title">
+                <div class="line"></div>
+                <div class="text">商家公告</div>
+                <div class="line"></div>
+              </div>
+              <div class="bulletin">
+                <p class="content">{{seller.bulletin}}-{{seller.bulletin}}</p>
+              </div>
+            </div>
+          </div>
+          <!--关闭按钮-->
+          <div class="detail-close" @click="closeDetail">
+            <i class="icon-close"></i>
           </div>
         </div>
-        <!--关闭按钮-->
-         <div class="detail-close" @click="closeDetail">
-           <i class="icon-close"></i>
-         </div>
-      </div>
+      </transition>
     </div>
 </template>
 
 <script>
+    import star from '../star/star'
     export default {
       props:{
         seller: {
@@ -59,6 +87,9 @@
         return {
           detailShow: false
         }
+      },
+      components: {
+        star
       },
       methods: {
         showDetail() {
@@ -134,8 +165,6 @@
           .text
             line-height: 12px
             font-size 12px
-
-
       .support-count
         position absolute
         right 12px
@@ -153,9 +182,6 @@
           margin-left 2px
           line-height 24px
           font-size 10px
-
-
-
     .bulletin-wrapper
       position relative
       height 28px
@@ -196,10 +222,19 @@
       position fixed
       z-index 100
       top 0
+      left 0
       width 100%
       height 100%
       overflow auto
       background rgba(7,17,27,0.8)
+      -webkit-backdrop-filter blur(10px)
+      &.slide-fade-enter-active
+        transition: all .3s ease
+      &.slide-fade-leave-active
+        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+      &.slide-fade-enter, &.slide-fade-leave-to
+        transform: translateX(10px)
+        opacity: 0
       .detail-wrapper
         width 100%
         min-height 100%
@@ -211,6 +246,60 @@
             text-align center
             font-size 17px
             font-weight 700
+          .star-wrapper
+            text-align center
+            padding 2px 0
+            margin-top 18px
+          .title
+            display flex
+            width 80%
+            margin 30px auto 24px auto
+            .line
+              flex 1
+              position relative
+              top -8px
+              border-bottom 1px solid rgba(255,255,255,0.2)
+            .text
+              padding 0 12px
+              font-size 14px
+              font-weight 700
+          .supports
+            width 80%
+            margin 0 auto
+            .support-item
+              padding 0 12px
+              margin-bottom 12px
+              font-size 0
+              &:last-child
+                margin-bottom 0
+              .icon
+                display inline-block
+                vertical-align top
+                width 16px
+                height 16px
+                margin-right 6px
+                background-size 16px 16px
+                background-repeat no-repeat
+                &.decrease
+                  bg-image('decrease_2')
+                &.discount
+                  bg-image('discount_2')
+                &.special
+                  bg-image('special_2')
+                &.invoice
+                  bg-image('invoice_2')
+                &.guarantee
+                  bg-image('guarantee_2')
+              .text
+                line-height 16px
+                font-size 12px
+          .bulletin
+            width 80%
+            margin 0 auto
+            .content
+              padding 0 12px
+              line-height 24px
+              font-size 14px
       .detail-close
         position relative
         width 32px
