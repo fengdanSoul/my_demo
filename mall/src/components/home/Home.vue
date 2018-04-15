@@ -1,6 +1,7 @@
 <template>
   <div class="header">
     <div class="home_header">
+      <img class="bg" src="../../assets/top_bg.gif" alt="">
       <strong class="col-xs-3">
         <select v-model="localName" class=" mar_top4">
           <option >{{localName}}</option>
@@ -9,44 +10,95 @@
         </select>
       </strong>
       <p class="col-xs-8 home_search"><span><input name="" type="text" value="搜索城市，游艇等信息" onfocus="if (value =='搜索城市，游艇等信息'){value =''}" onblur="if (value ==''){value='搜索城市，游艇等信息'}" /></span></p>
-      <a href="#" class="col-xs-1 tex_cen pad0"><img src="../../assets/icon1.png" /></a>
-      <div>
-        <span><select name="">
-    <option value="出游日期">出游日期</option>
-   </select></span>
-        <span class=" bor_no mar_le20"><select name="" >
-    <option value="出游人数">出游人数</option>
-   </select></span>
+      <a href="tel:10086" class="col-xs-1 tex_cen pad0"><img src="../../assets/icon1.png" /></a>
+      <!--出游日期、人数选择-->
+      <div class="picker">
+        <span><a class="date" href="javascript:;" @click="selectDate">{{this.calendar1.display ? this.calendar1.display:'出游日期'}}</a></span>
+        <span class=" bor_no mar_le20">
+          <select class="count" v-model="playCount">
+            <option disabled value="">出游人数</option>
+            <option>1人</option>
+            <option>2人</option>
+            <option>3人</option>
+          </select>
+        </span>
       </div>
     </div>
     <!-- home_header -->
     <housekeeperListH :imgHost="imgHost" :butlerrecommend="butlerrecommend"></housekeeperListH>
+    <transition name="slide-fade">
+      <keep-alive>
+        <div class="datepicker-wrapper" v-show="this.calendar1.datepickerShow">
+          <div class="content clearfix">
+            <div>
+              <calendar
+                ref="calendar1"
+                :events="calendar1.events"
+                :lunar="calendar1.lunar"
+                :value="calendar1.value"
+                :begin="calendar1.begin"
+                :end="calendar1.end"
+                :weeks="calendar1.weeks"
+                :months="calendar1.months"
+                @select="calendar1.select"
+                @selectMonth="calendar1.selectMonth"
+                @selectYear="calendar1.selectYear"></calendar>
+            </div>
+          </div>
+        </div>
+      </keep-alive>
+    </transition>
+
+
   </div>
-
-
 </template>
 
 <script>
   import housekeeperListH from './HousekeeperList-h'
+  import Calendar from '../calendar/calendar.vue'
   export default {
     data(){
       return {
         localName:'杭州',
         imgHost:'',
-        butlerrecommend:[]
+        butlerrecommend:[],
+        playCount:'',
+        calendar1:{
+          value: [2018,4,13], //默认日期
+          lunar:true, //显示农历
+          datepickerShow:false,
+          select:(value)=>{
+            this.calendar1.value=value;
+            this.calendar1.display=value.join("/");
+            this.calendar1.datepickerShow = false;
+            // 判断星期
+          },
+          selectMonth(month,year){
+            console.log(year,month)
+          },
+          selectYear(year){
+            console.log(year)
+          },
+          timestamp:Date.now()
+        },
       }
     },
-    name: "Home",
+    computed: {
+
+    },
     components: {
-      housekeeperListH
+      housekeeperListH,
+      Calendar
     },
     mounted() {
-      console.log('----',this.localName);
+      console.log(this.localName);
       if (this.localName.length) {
         this.init();
       }
-
+      // 定位
       this.getLocation();
+
+
     },
     watch:{
       'localName': function () {
@@ -70,7 +122,13 @@
               let result1 = response.data;
               console.log(response);
               if(result1['errorCode'] === 0 || result1['success'] === true ) {
-                _this.butlerrecommend = result1['value']['Butlerrecommend'];
+                let arr = result1['value']['Butlerrecommend'];
+                if (arr.length>3){
+                  _this.butlerrecommend = arr.splice(0,3);
+                } else {
+                  _this.butlerrecommend = arr;
+
+                }
                 _this.imgHost = result1['imgHost'];
               }
             }).catch(function (err) {
@@ -86,6 +144,7 @@
         });
 
       },
+      // 定位
       getLocation() {
         let _this = this;
         // 百度地图API功能121.48789949,31.24916171
@@ -110,13 +169,13 @@
             alert('failed'+this.getStatus());
           }
         },{enableHighAccuracy: true})
-
-
-
-
-
+      },
+      // 日期选择
+      selectDate() {
+        this.calendar1.datepickerShow =true;
 
       }
+
 
     }
 
@@ -125,7 +184,9 @@
 
 <style scoped>
   .header{margin-bottom: 80px}
-  .home_header{width:100%;height:189px;background:url(../../assets/top_bg.gif) 0 0 no-repeat;background-size:cover;padding:10px;text-align:center;}
+  /*.home_header{width:100%;height:189px;background:url(../../assets/top_bg.gif) 0 0 no-repeat;background-size:cover;padding:10px;text-align:center;}*/
+  .home_header{position: relative;width:100%;height:189px;padding:10px;text-align:center;}
+  .home_header .bg{position: absolute;top:0;left:0;width: 100%;height: 189px;z-index: -1;}
   .home_header select{background-color:transparent;color:#fff;border:0;font-size:16px;appearance:none;
     -moz-appearance:none;
     -webkit-appearance:none;
@@ -139,12 +200,27 @@
   .home_header div{display:inline-block;margin-top:55px;}
   .home_header div span{border-right:2px solid #fff;display:inline-block;padding-right:20px;height:20px;}
   .home_header div select{font-size:19px;margin-top:-3px;padding-right:27px;}
-
+  .home_header .picker .date{font-size: 16px;color: rgb(255,255,255);text-decoration: none;}
+  .home_header .picker .count{font-size: 16px;outline-style: none;text-align: right}
   .bj_btn{height:30px;line-height:30px;margin-top:10px;}
 
   header{width:100%;height:45px;line-height:45px;float:left;background:url(../../assets/header_bg.gif) 0 0 no-repeat;background-size:cover; position:fixed;top:0;left:0;z-index:99;}
   header a img{width:14px;margin-top:9px;}
   header h3{line-height:45px;margin:0;text-align:center;color:#fff;font-size:19px;}
+
+
+  .datepicker-wrapper{background: rgb(255,255,255);position: fixed;left: 0;top:0;width: 100%;height:100%;overflow: auto;z-index: 200}
+  .datepicker-wrapper .content{width: 100%;min-height: 100%;}
+
+  .content.slide-fade-enter-active, .content.slide-fade-leave-active {
+    transition: all .4s cubic-bezier(0, 1.2, 1, 0.5);
+    opacity: .7;
+    transform: translate3d(0, 6em, 0);
+  }
+  .content.slide-fade-enter, .content.slide-fade-leave-active {
+    opacity: .1;
+    transform: translate3d(0, 6em, 0);
+  }
 
   .list_nav{width:100%;height:82px;line-height:46px;float:left;background-color:#fff;position:fixed;top:45px;left:0;z-index:99;}
   .list_nav a{font-size:14px;color:#3f3e3e;}

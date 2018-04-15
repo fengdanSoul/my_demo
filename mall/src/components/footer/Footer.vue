@@ -29,19 +29,19 @@
   .list_tjpx li{width:100%;float:left;height:40px;line-height:40px;border-bottom:1px solid #e7e7e7;padding:0 15px;font-size:14px;}
   .list_tjpx .active{background:url(../../assets/icon10.png) 98% 50% no-repeat; background-size:24px;}
   .bot_menu .open a span{background:url(../../assets/icon9_1.png) 100% 50% no-repeat;}
-  .bot_menu .yd1{font-size:17px;color:#3f3e3e;text-align:center;padding-top:12px;}
+  .bot_menu .yd1{font-size:16px;color:#3f3e3e;text-align:center;padding-top:4px;}
   .bot_menu .yd2{height:49px;padding:0;}
-  .bot_menu .yd2 a{font-size:20px;height:49px;color:#fff;text-align:center;padding-top:12px;background-color:#de2f4e;margin:0;width:100%;float:left;}
+  .bot_menu .yd2 a{font-size:14px;height:35px;color:#fff;text-align:center;padding-top:3px;background-color:#de2f4e;margin:0;width:100%;float:left;}
 
-  .hom_menu .nav1 span{background:url(../../assets/icon19.png) 50% 50% no-repeat;width:100%;float:left;height:26px; background-size: auto 26px;}
-  .hom_menu .nav1 a.active span{background:url(../../assets/icon19_1.png) 50% 50% no-repeat;background-size: auto 26px;}
-  .hom_menu .nav2 span{background:url(../../assets/icon20.png) 50% 50% no-repeat;width:100%;float:left;height:26px; background-size: auto 26px;}
-  .hom_menu .nav2 a.active span{background:url(../../assets/icon20_1.png) 50% 50% no-repeat;background-size: auto 26px;}
-  .hom_menu .nav3 span{background:url(../../assets/icon21.png) 50% 50% no-repeat;width:100%;float:left;height:26px; background-size: auto 26px;}
-  .hom_menu .nav3 a.active span{background:url(../../assets/icon21_1.png) 50% 50% no-repeat;background-size: auto 26px;}
-  .hom_menu{height:72px;}
-  .hom_menu a{font-size:16px;color:#8d8b8b;}
-  .hom_menu a span{margin-bottom:4px;}
+  .hom_menu .nav1 span{background:url(../../assets/icon19.png) 50% 50% no-repeat;width:100%;float:left;height:20px; background-size: auto 20px;}
+  .hom_menu .nav1 a.active span{background:url(../../assets/icon19_1.png) 50% 50% no-repeat;background-size: auto 20px;}
+  .hom_menu .nav2 span{background:url(../../assets/icon20.png) 50% 50% no-repeat;width:100%;float:left;height:20px; background-size: auto 20px;}
+  .hom_menu .nav2 a.active span{background:url(../../assets/icon20_1.png) 50% 50% no-repeat;background-size: auto 20px;}
+  .hom_menu .nav3 span{background:url(../../assets/icon21.png) 50% 50% no-repeat;width:100%;float:left;height:20px; background-size: auto 20px;}
+  .hom_menu .nav3 a.active span{background:url(../../assets/icon21_1.png) 50% 50% no-repeat;background-size: auto 20px;}
+  .hom_menu{height:49px;}
+  .hom_menu a{font-size:15px;color:#8d8b8b;}
+  .hom_menu a span{margin-bottom:2px;}
   .hom_menu div a.active{color:#c88a27;}
 
 </style>

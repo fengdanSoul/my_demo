@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+
+<script>
+
+
+  $.ajax({
+    type: 'post',
+    url: 'http://192.168.1.106/data.json',
+    dataType: 'jsonp',
+    success: function (res) {
+      console.log('ajax=成功:',res);
+    },
+    error: function (err) {
+      console.log('ajax=失败:',err);
+    }
+  });
+
+  $.ajax({
+    type: 'post',
+    url: 'http://client.ilxgj.com/searchCityCode',
+    dataType: 'jsonp',
+    data: {
+      'localName': '上海市'
+    },
+    success: function (res) {
+      console.log('ajax成功:',res);
+    },
+    error: function (err) {
+      console.log('ajax失败:',err);
+    }
+  });
+</script>
+</body>
+</html>

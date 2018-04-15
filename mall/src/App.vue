@@ -1,22 +1,42 @@
 <template>
   <div id="app">
-    <!--<LoadingView></LoadingView>-->
+    <v-loading v-show="loadingShow"></v-loading>
     <transition name="slide-down">
       <keep-alive>
         <router-view class="router-view"></router-view>
       </keep-alive>
     </transition>
-    <footerView></footerView>
+    <footerView v-show="footerShow"></footerView>
   </div>
 </template>
 
 <script>
   import LoadingView from './components/loading/Loading'
   import footerView from './components/footer/Footer.vue'
-export default {
+  // import { mapGetters } from 'vuex'
+
+  export default {
   name: 'App',
+  // computed:{
+  //   ...mapGetters([
+  //     'footerShow',
+  //     'loadingShow'
+  //   ])
+  // },
+  computed:{
+    footerShow(){
+      return this.$store.state.footerShow;
+    },
+    loadingShow(){
+      return this.$store.state.loadingShow;
+    }
+  },
+  mounted(){
+
+  },
+
   components: {
-    LoadingView,
+    'v-loading':LoadingView,
     footerView
   }
 }
@@ -26,21 +46,21 @@ export default {
   .slide-up-enter-active, .slide-up-leave-active {
     transition: all .4s cubic-bezier(0, 1.2, 1, 0.5);
     opacity: .7;
-    transform: translate3d(0, 4em, 0);
+    /*transform: translate3d(0, 4em, 0);*/
   }
   .slide-up-enter, .slide-up-leave-active {
     opacity: .3;
-    transform: translate3d(0, 4em, 0);
+    /*transform: translate3d(0, 4em, 0);*/
   }
 
   .slide-down-enter-active, .slide-down-leave-active {
     transition: all .4s cubic-bezier(0, 1.2, 1, 0.5);
     opacity: .7;
-    transform: translate3d(0, 6em, 0);
+    /*transform: translate3d(0, 6em, 0);*/
   }
   .slide-down-enter, .slide-down-leave-active {
     opacity: .1;
-    transform: translate3d(0, 6em, 0);
+    /*transform: translate3d(0, 6em, 0);*/
   }
 
   .slide-left-enter-active, .slide-left-leave-active {

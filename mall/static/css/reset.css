@@ -51,15 +51,17 @@ a:focus {
   -moz-outline-style: none;
   text-decoration: none
 }
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden
+.clearfix{
+  display: inline-block;
 }
-.clearfix {
-  zoom: 1
+.clearfix:after {
+  display: block;
+  display: block;
+  content: ' ';
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
 }
 .wapper {
   width: 1200px;
